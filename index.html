@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="NINormal">
+    <meta name="author" content="Zirui Wang and Victor Adrian Prisacariu">
+    <meta name="generator" content="Jekyll v4.1.1">
+    
+    <title>NINormal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+      crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+</nav>
+
+<main role="main" class="container">
+
+  <div class="title">
+    <h1>Neighbourhood-Insensitive Point Cloud Normal Estimation Network</h1>
+  </div>
+
+  <h1 class="bmvc_label">(BMVC 2020 Oral Presentation)</h1>
+
+  <div class="col text-center">
+    <p class="authors">
+      Zirui Wang and
+      <a href="http://www.robots.ox.ac.uk/~victor/">Victor Adrian Prisacariu</a><br>
+      <a href="http://active.vision"> Active Vision Lab</a><br>
+      University of Oxford
+    </p>
+  </div>
+
+  <div class="col text-center">
+    <a class="btn btn-secondary" href="https://arxiv.org/abs/2008.09965" role="button">Paper</a>
+    <a class="btn btn-secondary" href="https://github.com/ActiveVisionLab/NINormal" role="button">Code</a>
+    <a class="btn btn-secondary" href="http://www.robots.ox.ac.uk/~ryan/bmvc2020/0028_supp.pdf" role="button">Supp</a>
+    <a class="btn btn-secondary" href="https://unioxfordnexus-my.sharepoint.com/:f:/g/personal/lina3315_ox_ac_uk/EpKOPV-hSx9HnPewPcIiLIwBufcOjnfmH0ilak_vzoVC6Q?e=4hjDdB" role="button">Data</a>
+    <a class="btn btn-secondary" href="https://unioxfordnexus-my.sharepoint.com/:f:/g/personal/lina3315_ox_ac_uk/EpKOPV-hSx9HnPewPcIiLIwBufcOjnfmH0ilak_vzoVC6Q?e=4hjDdB" role="button">Pretrained</a>
+  </div>
+  
+  <h2>Abstract</h2>
+  <p>
+    We introduce a novel self-attention-based normal estimation network that is able to focus softly 
+    on relevant points and adjust the softness by learning a temperature parameter, making it able 
+    to work naturally and effectively within a large neighbourhood range. As a result, our model 
+    outperforms all existing normal estimation algorithms by a large margin, achieving 94.1% accuracy 
+    in comparison with the previous state of the art of 91.2%, with a 25x smaller model and 12x faster 
+    inference time. We also use point-to-plane Iterative Closest Point (ICP) as an application case to 
+    show that our normal estimations lead to faster convergence than normal estimations from other 
+    methods, without manually fine-tuning neighbourhood range parameters.
+  </p>
+
+
+  <div class="embed-responsive embed-responsive-16by9">
+  <iframe src="https://www.youtube.com/embed/gxBeR2LBB0k"  
+  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>
+  </div>
+
+
+  <h2>Results</h2>
+  <p>Our model outperforms PCA by a large margin and most importantly, the performance of
+    our method does not degrade as the number of neighbours increases.</p>
+  <div class="col text-center">
+    <figure class="figure">
+      <img src="imgs/ours_vs_others.png" class="figure-img img-fluid rounded" alt="performance comparison" width="1000">
+    </figure>
+  </div>
+
+
+  <h2>Attention Weight Visualisation</h2>
+  <p>From the attention map over 5 and 10 neighbours, (a) and (b), we can see that the network
+    pays more attention to neighbours that are close to the patch centre and ignores points farther
+    than 8th neighbours. This agrees with the PCA performance in the figure above. From the attention
+    map over 25 and 50 neighbours, (c) and (d), we observe that the network pays extra attention
+    to points at the right-end in a row. These are points far from the patch centre.</p>
+  
+  <div class="col text-center">
+    <figure class="figure">
+      <img src="imgs/combined100.png" class="figure-img img-fluid rounded" alt="attention weight vis" width="500">
+      <figcaption class="figure-caption text-center">
+        Each row in the attention map is a local patch that contains 5, 10, 25, 50 neighbours, 
+        from left to right. The x-axis denotes the indices of closest neighbours within a patch,
+        i.e., the point that is the closest to the patch centre is represented by the 1st pixel in a row.
+        attention weights are colour-coded by pixel intensity.
+      </figcaption>
+    </figure>
+  </div>
+
+  <p>To illustrate
+    this better, we show the attention weights predicted by our network in 3D. These
+    attention weights visualisations suggest that the network learns to identify geometric properties around the current point using points from larger scales, by inspecting, for example,
+    whether the patch contains a sharp edge or a corner. Therefore, our network maintains a relatively stable performance despite different numbers of neighbours by focusing on relevant
+    points.</p>
+
+  <div class="col text-center">
+    <figure class="figure">
+      <img src="imgs/attn_two_patches_3d.gif" class="figure-img img-fluid rounded" alt="attention weight vis 3d">
+      <figcaption class="figure-caption text-center">
+        In addtion to focusing on points close to the patch centre, our network pays extra attention to patch boundaries to identify patch geometry properties.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Acknowledgement</h2>
+  <p>The authors would like to thank 
+    <a href="https://sites.google.com/site/drminchen/home">Min Chen</a>,
+    <a href="https://tengdahan.github.io/">Tengda Han</a>,
+    <a href="https://lishuda.wordpress.com/">Shuda Li</a>,
+    <a href="https://scholar.google.co.uk/citations?user=kQB_dOoAAAAJ&hl=en">Tim Yuqing Tang</a> and
+    <a href="https://elliottwu.com/">Shangzhe Wu</a>
+    for insightful discussions and proofreading.</p>
+
+  <h2>BibTeX</h2>
+  <pre>
+    @inproceedings{wang2020ninormal,
+      title={Neighbourhood-Insensitive Point Cloud Normal Estimation Network},
+      author={Wang, Zirui and Prisacariu, Victor Adrian},
+      booktitle={BMVC},
+      year={2020}
+    }
+  </pre>
+
+  <h2>Reference</h2>
+  <ol>
+    <li>Paul Guerrero, Yanir Kleiman, Maks Ovsjanikov, and Niloy J. Mitra. PCPNet: Learning local shape properties from raw point clouds. Computer Graphics Forum, 2018.</li>
+    <li>Yizhak Ben-Shabat, Michael Lindenbaum, and Anath Fischer. Nesti-net: Normal estimation for unstructured 3d point clouds using convolutional neural networks. In CVPR, 2019.</li>
+  </ol>
+
+
+
+
+</main>
+</html>
