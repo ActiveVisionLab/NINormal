@@ -1,0 +1,12 @@
+
+.idea/
+
+__pycache__/
+
+dataset_dir/
+
+debug_output/
+
+logs/
+
+paper_ckpts
