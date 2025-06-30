@@ -10,7 +10,9 @@
 Zirui Wang and [Victor Adrian Prisacariu](http://www.robots.ox.ac.uk/~victor/). Active Vision Lab, University of Oxford.
 BMVC 2020 (Oral Presentation).
 
-**Update**: We use our university's OneDrive to store our pretrained models and the preprocessed dataset. The university just changed the access policy and this stops us sharing our data through a public link so the data and pretrained links above are broken. The easiest fix for now is **you can send your email address to ryan[AT]robots.ox.ac.uk and I'll share it through email**. We will try to find out a way to share it with a link properly later.
+**Update 30 June 2025**: data and pretrained checkpoints are now available at HuggingFace ([link](https://huggingface.co/datasets/active-vision-lab/NINormal)). 
+
+~**Update**: We use our university's OneDrive to store our pretrained models and the preprocessed dataset. The university just changed the access policy and this stops us sharing our data through a public link so the data and pretrained links above are broken. The easiest fix for now is **you can send your email address to ryan[AT]robots.ox.ac.uk and I'll share it through email**. We will try to find out a way to share it with a link properly later.~
 
 ## Environment:
 ```
