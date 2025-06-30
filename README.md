@@ -4,8 +4,8 @@
 [Paper](https://arxiv.org/abs/2008.09965) | 
 [Video](https://youtu.be/gxBeR2LBB0k) |
 [Supp](http://www.robots.ox.ac.uk/~ryan/bmvc2020/0028_supp.pdf) | 
-~~[Data](https://unioxfordnexus-my.sharepoint.com/:f:/g/personal/lina3315_ox_ac_uk/EpKOPV-hSx9HnPewPcIiLIwBufcOjnfmH0ilak_vzoVC6Q?e=4hjDdB)~~ | 
-~~[Pretrained Models](https://unioxfordnexus-my.sharepoint.com/:f:/g/personal/lina3315_ox_ac_uk/EpKOPV-hSx9HnPewPcIiLIwBufcOjnfmH0ilak_vzoVC6Q?e=4hjDdB)~~**
+[Data](https://huggingface.co/datasets/active-vision-lab/NINormal) | 
+[Pretrained Models](https://huggingface.co/datasets/active-vision-lab/NINormal)**
 
 Zirui Wang and [Victor Adrian Prisacariu](http://www.robots.ox.ac.uk/~victor/). Active Vision Lab, University of Oxford.
 BMVC 2020 (Oral Presentation).
